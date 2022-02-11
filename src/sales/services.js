@@ -42,7 +42,6 @@ const foundProduct = async (id_product) => {
     if (validateProduct === null) {
       return false;
     } else {
-      // await doSale();
       return true;
     }
   } catch (error) {
@@ -72,8 +71,8 @@ const doSale = async (id_product, stock) => {
 const updateProduct = async (id_product, stock) => {
   const collection = await Database(P_COLLECTION);
   const product = await collection.findOne({ _id: ObjectId(id_product) });
-  const cantidad = product.cantidad - stock
-  const data = { ...product, cantidad }
+  const cantidad = product.cantidad - stock;
+  const data = { ...product, cantidad };
 
   let result = await collection.updateOne(
     { _id: ObjectId(id_product) },
@@ -94,22 +93,13 @@ const create = async (oneSale) => {
   } else if (!total) {
     return "Error.. Sale NOT made due to lack of product";
   } else {
-    const data = { ...oneSale, total }
+    const data = { ...oneSale, total };
     const sales = await Database(S_COLLECTION);
     let result = await sales.insertOne(data);
     await updateProduct(oneSale.product, oneSale.stock);
     return result.insertedId;
   }
 };
-
-/* const updateUser = async (id, user) => {
-  const collection = await Database(S_COLLECTION);
-  let result = await collection.updateOne(
-    { _id: ObjectId(id) },
-    { $set: { ...user } }
-  );
-  return result;
-}; */
 
 const deleteSale = async (id) => {
   const collection = await Database(S_COLLECTION);

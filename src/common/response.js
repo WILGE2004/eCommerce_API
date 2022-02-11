@@ -11,11 +11,3 @@ module.exports.Response = {
     res.status(statusCode).json({ message });
   },
 };
-
-/* const sendRes = (res, code, success, message) => {
-  return res.status(code).json({ success, message });
-};
-
-module.exports = sendRes; */
-
-// snippet => () => {\n    $3$1\n}

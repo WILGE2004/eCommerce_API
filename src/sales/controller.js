@@ -30,7 +30,6 @@ module.exports.SalesController = {
   },
 
   createSale: async (req, res) => {
-    //Terminar
     try {
       const { user, product, stock } = req.body;
       const data = { user, product, stock };
@@ -46,27 +45,6 @@ module.exports.SalesController = {
       Response.error(res);
     }
   },
-
-  /*   updateUser: async (req, res) => {
-    try {
-      const { name, email, rol } = req.body;
-      const data = { name, email, rol };
-      const { id } = req.params;
-      if (!data || Object.keys(data).length === 0) {
-        Response.error(res, new createError.BadRequest());
-      } else {
-        const user = await SalesService.updateUser(id, data);
-        if (!user) {
-          Response.error(res, new createError.NotFound());
-        } else {
-          Response.success(res, 200, `User ${id} updated`, Object(data));
-        }
-      }
-    } catch (error) {
-      debug(error);
-      Response.error(res);
-    }
-  }, */
 
   deleteSale: async (req, res) => {
     try {

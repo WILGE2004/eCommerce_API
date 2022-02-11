@@ -92,9 +92,3 @@ module.exports.ProductsController = {
     }
   },
 };
-
-/* const ProductsController = {};
-
-productsController.product = () => {}
-
-module.exports = productsController; */
